@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: security
+  datasource:
+    hikari:
+      jdbc-url:
+      username:
+      password:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+      pool-size: 5                    # 커넥션 풀의 기본 크기
+      maximum-pool-size: 10           # 커넥션 풀이 생성할 수 있는 최대 커넥션수
+      idle-timeout: 300000            # 커넥션이 유휴 상태로 유지될 수 있는 최대 시간(밀리초), 이 시간이 지나면 커넥션 풀에서 제거. minimum-idle보다 작을 수 없음. default 5분
+      max-life-time: 1200000          # 커넥션이 풀에서 살아있을 수 있는 최대 시간(밀리초). 이 시간이 지나면 커넥션은 닫히고 새로 생성. default 20분
+      leak-detection-threshold: 5000  # 커넥션이 이 시간(밀리초) 이상 사용되면 리소스 누수 가능성이 있다고 판단하여 경고 로그를 남김. 5초
+      validation-timeout: 5000        # 커넥션 유효성 검사를 완료하는 데 허용되는 최대 시간(밀리초) 5초
+      auto-commit: true
+      connection-timeout: 30000
+      pool-name: database-pool
+      connection-test-query: SELECT 1
