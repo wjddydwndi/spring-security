@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = "com.cc.administrator.mapper", sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = "com.example.security.mapper", sqlSessionFactoryRef = "sqlSessionFactory")
 public class DatabaseConfiguration {
 
     @Bean(name = "hikariConfig")
