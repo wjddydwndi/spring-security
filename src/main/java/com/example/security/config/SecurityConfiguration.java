@@ -36,8 +36,8 @@ public class SecurityConfiguration {
         http.csrf(csrf -> csrf.disable()).httpBasic(hbasic -> hbasic.disable())
                 .headers(config -> config.frameOptions(customizer -> customizer.sameOrigin()));
 
-        http.authorizeHttpRequests(auth ->// auth.dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ASYNC).permitAll()
-                auth.requestMatchers("/", "/login", "/signup").permitAll()
+        http.authorizeHttpRequests(auth ->  auth.dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ASYNC).permitAll()
+                .requestMatchers("/", "/login", "/signup").permitAll()
                 .anyRequest().authenticated());
 
         http.formLogin(form -> form.loginPage("/login")
